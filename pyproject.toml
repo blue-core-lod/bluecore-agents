@@ -5,7 +5,22 @@ description = "Blue Core AI Agents using LLMs"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "pydantic-ai>=0.0.24",
+    "pydantic-ai>=1.9.0",
     "pyshacl>=0.30.1",
     "rdflib>=7.1.3",
+    "httpx>=0.28.0",
+    "pymilvus>=2.6.2",
+    "bluecore-models>=0.10.1",
 ]
+
+[dependency-groups]
+dev = [
+    "pymilvus[milvus-lite]>=2.6.2",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-httpx>=0.35.0",
+    "ruff>=0.14.1",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
