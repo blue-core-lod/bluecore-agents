@@ -22,24 +22,19 @@ class SupportDependencies:
 agent = Agent(
     result_type=bool,
     system_prompt=(
-        'You are an expert on deciding if a BIBFRAME Work or Instance '
-        'is valid according to the SHACL graphs and by current resources '
-        'in the Blue Core vector space. A critical test is the {validate} '
-        'tool using any of the available Blue Core API {endpoints}.'
-    )
+        "You are an expert on deciding if a BIBFRAME Work or Instance "
+        "is valid according to the SHACL graphs and by current resources "
+        "in the Blue Core vector space. A critical test is the {validate} "
+        "tool using any of the available Blue Core API {endpoints}."
+    ),
 )
 
+
 @agent.tool
-async def endpoints(
-    ctx: RunContext[SupportDependencies]
-) -> dict:
+async def endpoints(ctx: RunContext[SupportDependencies]) -> dict:
     return {}
 
+
 @agent.tool
-async def validate(
-    ctx: RunContext[SupportDependencies]
-) -> Union[bool, rdflib.Graph]:
+async def validate(ctx: RunContext[SupportDependencies]) -> Union[bool, rdflib.Graph]:
     return True
-    
-
-
